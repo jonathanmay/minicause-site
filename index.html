@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniCause — Giving Days & Year-Round Fundraising for Community Foundations</title>
+    <title>MiniCause — Giving days & year-round fundraising for community foundations</title>
+    <meta name="description" content="MiniCause is the modern giving day and year-round fundraising platform built for US community foundations. Less cost, more impact, way better technology.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MiniCause — Your giving day platform (and the other 364 days too)">
+    <meta property="og:description" content="The modern giving day and year-round fundraising platform for community foundations. 3% of funds raised. No license fees. No nonsense.">
+    <meta property="og:image" content="https://minicause.com/og-image.png">
+    <meta property="og:url" content="https://minicause.com">
+    <meta property="og:site_name" content="MiniCause">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MiniCause — Your giving day platform (and the other 364 days too)">
+    <meta name="twitter:description" content="The modern giving day and year-round fundraising platform for community foundations. 3% of funds raised. No license fees. No nonsense.">
+    <meta name="twitter:image" content="https://minicause.com/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Fraunces', 'Georgia', 'serif'],
+                        sans: ['DM Sans', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -28,7 +48,15 @@
                             800: '#4c1d95',
                             900: '#2e1065',
                         },
-                        accent: {
+                        warm: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        },
+                        mint: {
                             400: '#34d399',
                             500: '#10b981',
                             600: '#059669',
@@ -41,18 +69,43 @@
     <style>
         html { scroll-behavior: smooth; }
         .gradient-hero {
-            background: linear-gradient(135deg, #2e1065 0%, #4c1d95 40%, #7c3aed 100%);
+            background: linear-gradient(160deg, #1a0536 0%, #2e1065 30%, #4c1d95 70%, #6d28d9 100%);
         }
         .gradient-cta {
-            background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #2e1065 0%, #6d28d9 100%);
         }
         .stat-card {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.06);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .feature-icon {
             background: linear-gradient(135deg, #7c3aed 0%, #10b981 100%);
+        }
+        .footnote {
+            font-size: 0.8rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            font-style: italic;
+        }
+        .pattern-dots {
+            background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .wiggle { display: inline-block; }
+        .wiggle:hover { animation: wiggle 0.5s ease-in-out; }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+        sup.fn {
+            font-size: 0.65em;
+            color: #7c3aed;
+            cursor: default;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -61,19 +114,19 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg feature-icon flex items-center justify-center">
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-xl feature-icon flex items-center justify-center transition group-hover:scale-105">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                     </svg>
                 </div>
-                <span class="text-xl font-bold text-brand-900">MiniCause</span>
-            </div>
+                <span class="text-xl font-display font-bold text-brand-900">MiniCause</span>
+            </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-                <a href="#challenges" class="hover:text-brand-600 transition">Why Switch</a>
+                <a href="#why-switch" class="hover:text-brand-600 transition">Why Switch</a>
                 <a href="#platform" class="hover:text-brand-600 transition">Platform</a>
                 <a href="#team" class="hover:text-brand-600 transition">Team</a>
-                <a href="https://meetings.hubspot.com/jonathanmay/scheduling?uuid=49603747-c646-4a8e-b78c-175ff61212ac" target="_blank" class="bg-brand-600 text-white px-5 py-2.5 rounded-lg hover:bg-brand-700 transition">Book a Call</a>
+                <a href="https://meetings.hubspot.com/jonathanmay/scheduling?uuid=49603747-c646-4a8e-b78c-175ff61212ac" target="_blank" class="bg-brand-600 text-white px-5 py-2.5 rounded-lg hover:bg-brand-700 transition font-semibold">Let's Talk</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,328 +135,265 @@
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
-            <a href="#challenges" class="block text-sm font-medium text-gray-600 hover:text-brand-600">Why Switch</a>
+            <a href="#why-switch" class="block text-sm font-medium text-gray-600 hover:text-brand-600">Why Switch</a>
             <a href="#platform" class="block text-sm font-medium text-gray-600 hover:text-brand-600">Platform</a>
             <a href="#team" class="block text-sm font-medium text-gray-600 hover:text-brand-600">Team</a>
-            <a href="https://meetings.hubspot.com/jonathanmay/scheduling?uuid=49603747-c646-4a8e-b78c-175ff61212ac" target="_blank" class="block bg-brand-600 text-white px-5 py-2.5 rounded-lg text-center text-sm font-medium">Book a Call</a>
+            <a href="https://meetings.hubspot.com/jonathanmay/scheduling?uuid=49603747-c646-4a8e-b78c-175ff61212ac" target="_blank" class="block bg-brand-600 text-white px-5 py-2.5 rounded-lg text-center text-sm font-semibold">Let's Talk</a>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="gradient-hero pt-32 pb-20 md:pt-40 md:pb-28">
-        <div class="max-w-6xl mx-auto px-6">
+    <section class="gradient-hero pt-32 pb-20 md:pt-44 md:pb-32 pattern-dots relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="max-w-3xl">
-                <p class="text-accent-400 font-semibold text-sm uppercase tracking-wider mb-4">For Community Foundations</p>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-                    Your giving day platform<br>
-                    <span class="text-accent-400">and so much more.</span>
+                <p class="text-warm-300 font-semibold text-sm uppercase tracking-widest mb-5 font-sans">For community foundations who want more</p>
+                <h1 class="font-display text-5xl md:text-7xl font-900 text-white leading-[1.1] mb-8">
+                    You run a giving day once a year.<br>
+                    <span class="text-warm-300 italic">What if you didn't have to stop?</span>
                 </h1>
-                <p class="text-xl text-purple-100 leading-relaxed mb-10 max-w-2xl">
-                    MiniCause is the modern fundraising platform built for community foundations. Run your giving day, power year-round campaigns, and help every nonprofit in your region raise more &mdash; all from one place.
+                <p class="text-xl md:text-2xl text-purple-100/90 leading-relaxed mb-12 max-w-2xl font-light">
+                    MiniCause is a giving day platform <em>and</em> a year-round fundraising engine for your entire community. Modern technology, simple pricing, and &mdash; we cannot stress this enough &mdash; it works on all 365 days.<sup class="fn">1</sup>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="https://meetings.hubspot.com/jonathanmay/scheduling?uuid=49603747-c646-4a8e-b78c-175ff61212ac" target="_blank"
-                       class="inline-flex items-center justify-center bg-accent-500 hover:bg-accent-600 text-white font-semibold px-8 py-4 rounded-xl text-lg transition shadow-lg shadow-accent-500/25">
+                       class="inline-flex items-center justify-center bg-warm-400 hover:bg-warm-300 text-brand-900 font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg shadow-warm-400/20">
                         Book a Discovery Call
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
-                    <a href="#platform" class="inline-flex items-center justify-center border-2 border-white/30 text-white font-semibold px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition">
-                        See How It Works
+                    <a href="#platform" class="inline-flex items-center justify-center border-2 border-white/25 text-white font-semibold px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition">
+                        Show Me How
                     </a>
+                </div>
+                <p class="text-purple-300/60 text-sm mt-6 italic"><sup>1</sup> 366 in a leap year. We don't charge extra.</p>
+            </div>
+        </div>
+        <!-- Decorative blob -->
+        <div class="absolute -right-32 top-20 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 bottom-10 w-72 h-72 bg-warm-400/10 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- The uncomfortable truth -->
+    <section id="why-switch" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4 text-center">The uncomfortable truth</p>
+            <h2 class="font-display text-3xl md:text-5xl font-bold text-brand-900 mb-8 text-center leading-tight">
+                Your giving day platform was built<br class="hidden md:block"> when people still used BlackBerrys.
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed text-center max-w-2xl mx-auto mb-16">
+                Most giving day platforms haven't meaningfully changed since 2014. They'll still happily charge you $50,000 a year for the privilege of running one event on them, though. That part has kept up with inflation nicely.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 relative">
+                    <div class="text-4xl mb-4 wiggle">📅</div>
+                    <h3 class="font-display text-xl font-bold text-brand-900 mb-3">The one-day wonder</h3>
+                    <p class="text-gray-600 leading-relaxed">You pay year-round for a platform you use once. Your donors want to give in March. Your platform wakes up in November. There's a mismatch here, and it isn't subtle.</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 relative">
+                    <div class="text-4xl mb-4 wiggle">🏋️</div>
+                    <h3 class="font-display text-xl font-bold text-brand-900 mb-3">The heavy lifting falls on you</h3>
+                    <p class="text-gray-600 leading-relaxed">Your platform gives you leaderboards. Wonderful. Meanwhile, 200 of your nonprofits are staring at a blank campaign page wondering what to write. Guess who they call?</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 relative">
+                    <div class="text-4xl mb-4 wiggle">💸</div>
+                    <h3 class="font-display text-xl font-bold text-brand-900 mb-3">The math doesn't math</h3>
+                    <p class="text-gray-600 leading-relaxed">License fees. Processing fees. Platform fees. "Optional" donor tips that aren't really optional. By the time the money reaches your nonprofits, everyone's taken a bite.</p>
                 </div>
             </div>
 
-            <!-- Stats bar -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
-                <div class="stat-card rounded-xl p-5 text-center">
-                    <div class="text-3xl font-bold text-white">10+ yrs</div>
-                    <div class="text-purple-200 text-sm mt-1">Powering giving days globally</div>
-                </div>
-                <div class="stat-card rounded-xl p-5 text-center">
-                    <div class="text-3xl font-bold text-white">$100M+</div>
-                    <div class="text-purple-200 text-sm mt-1">Raised through our platforms</div>
-                </div>
-                <div class="stat-card rounded-xl p-5 text-center">
-                    <div class="text-3xl font-bold text-white">365</div>
-                    <div class="text-purple-200 text-sm mt-1">Days a year, not just one</div>
-                </div>
-                <div class="stat-card rounded-xl p-5 text-center">
-                    <div class="text-3xl font-bold text-white">3%</div>
-                    <div class="text-purple-200 text-sm mt-1">Simple, success-based pricing</div>
-                </div>
+            <div class="footnote max-w-2xl mx-auto text-center">
+                We're not naming names. You already know who we're talking about. And honestly, they did important work getting giving days started. But "we were first" is not the same as "we're still best."
             </div>
         </div>
     </section>
 
-    <!-- Sound Familiar? -->
-    <section id="challenges" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center mb-16">
-                <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">Sound Familiar?</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">You run a great giving day. But what about the other 364?</h2>
-                <p class="text-lg text-gray-600 leading-relaxed">
-                    Your giving day is a highlight of the year. But if you're like most community foundations, the platform you use was built for that one event &mdash; and the rest of the year, you're on your own.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-3">"We only use our platform one day a year"</h3>
-                    <p class="text-gray-600 leading-relaxed">You're paying for a giving day tool that sits idle for months. Meanwhile, your nonprofits need year-round fundraising support and your donors want to give when they're inspired &mdash; not just on one designated day.</p>
+    <!-- Big number callout -->
+    <section class="py-16 bg-brand-900 pattern-dots">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="font-display text-5xl md:text-6xl font-bold text-warm-300 mb-2">3%</div>
+                    <p class="text-purple-200 text-lg">of funds raised. That's it.<br><span class="text-purple-300/60 text-sm">No license. No setup fee. No surprises.</span></p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-3">"Our smaller nonprofits struggle to participate"</h3>
-                    <p class="text-gray-600 leading-relaxed">A handful of well-resourced organizations raise most of the money. Smaller nonprofits &mdash; the ones who need your giving day most &mdash; don't have the capacity to build campaigns, tell their story, or follow up with donors.</p>
+                <div>
+                    <div class="font-display text-5xl md:text-6xl font-bold text-warm-300 mb-2">10+</div>
+                    <p class="text-purple-200 text-lg">years powering giving days.<br><span class="text-purple-300/60 text-sm">We've been doing this a while.</span></p>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-3">"We're paying too much for too little"</h3>
-                    <p class="text-gray-600 leading-relaxed">Between platform license fees and processing costs, you're spending 5-7% of every dollar raised. That's money your nonprofits and donors expect to go to the causes they care about.</p>
+                <div>
+                    <div class="font-display text-5xl md:text-6xl font-bold text-warm-300 mb-2">365</div>
+                    <p class="text-purple-200 text-lg">days your platform works.<br><span class="text-purple-300/60 text-sm">Revolutionary concept, we know.</span></p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Platform -->
-    <section id="platform" class="py-20">
+    <section id="platform" class="py-24 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center mb-16">
-                <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">One Platform, Every Day</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">Your giving day is just the beginning</h2>
+                <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">What you actually get</p>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-brand-900 mb-6 leading-tight">A giving day platform that also does<br class="hidden md:block"> <span class="italic text-brand-600">everything else</span></h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    MiniCause gives you everything you need to run a world-class giving day and keep the momentum going year-round. No more cobbling together separate tools.
+                    Most platforms make you choose: giving day tool <em>or</em> fundraising platform. We thought that was a bit like choosing between your left leg and your right. Why not both?
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="grid md:grid-cols-2 gap-10 items-start">
                 <!-- Giving Days -->
-                <div class="bg-brand-50 rounded-2xl p-8 md:p-10 border border-brand-100">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 feature-icon rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-900">Giving Days</h3>
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">⚡</span>
+                        <h3 class="font-display text-2xl font-bold text-brand-900">Giving Days</h3>
                     </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed">Everything you need to run a high-energy community giving event that gets your region excited to give.</p>
-                    <ul class="space-y-3">
+                    <p class="text-gray-500 mb-6 italic text-sm">The big day. The one everyone trains for. We make sure it goes brilliantly.</p>
+                    <ul class="space-y-4">
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Real-time totalizers, leaderboards & donation maps</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Real-time totalizers, leaderboards & live donation maps</span>
+                                <p class="text-gray-500 text-sm mt-0.5">The dopamine-generating bits that make giving days addictive.</p>
+                            </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Match funding, prizes & gamification</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Match challenges, prizes & gamification</span>
+                                <p class="text-gray-500 text-sm mt-0.5">Because a little friendly competition never hurt anyone's fundraising totals.</p>
+                            </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Beautiful nonprofit campaign pages with rich storytelling</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">AI-powered campaign pages for every nonprofit</span>
+                                <p class="text-gray-500 text-sm mt-0.5">Even the ones without a marketing department. <em>Especially</em> those.</p>
+                            </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Social sharing & ambassador toolkits</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">AI-powered campaign creation for every nonprofit</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Social sharing & ambassador toolkits</span>
+                                <p class="text-gray-500 text-sm mt-0.5">Turn your most passionate supporters into an army of fundraisers.</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Year-Round -->
-                <div class="bg-accent-500/5 rounded-2xl p-8 md:p-10 border border-accent-500/10">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 feature-icon rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-900">Year-Round Fundraising</h3>
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">🔄</span>
+                        <h3 class="font-display text-2xl font-bold text-brand-900">Year-Round Fundraising</h3>
                     </div>
-                    <p class="text-gray-600 mb-6 leading-relaxed">Keep donors engaged and nonprofits fundraising between giving days with always-on tools.</p>
-                    <ul class="space-y-3">
+                    <p class="text-gray-500 mb-6 italic text-sm">The other 364 days. Where the real relationship-building happens.</p>
+                    <ul class="space-y-4">
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Always-on nonprofit fundraising pages</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Always-on nonprofit fundraising pages</span>
+                                <p class="text-gray-500 text-sm mt-0.5">Your nonprofits can raise money whenever donors are ready to give. Novel idea.</p>
+                            </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Themed campaigns & cause-based giving</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Themed campaigns & cause-based giving</span>
+                                <p class="text-gray-500 text-sm mt-0.5">Environment month. Arts week. Back-to-school drive. You dream it, we run it.</p>
+                            </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Donor stewardship & recurring giving</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Donor stewardship & recurring giving</span>
+                                <p class="text-gray-500 text-sm mt-0.5">One-time donors become monthly donors. Monthly donors become champions.</p>
+                            </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Community storytelling & impact reporting</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-5 h-5 text-accent-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span class="text-gray-700">Run multiple campaigns throughout the year</span>
+                            <span class="text-mint-500 mt-1 text-lg">&#10003;</span>
+                            <div>
+                                <span class="text-gray-800 font-medium">Community storytelling & impact reporting</span>
+                                <p class="text-gray-500 text-sm mt-0.5">Show your community where the money goes and why it matters.</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Why MiniCause -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center mb-16">
-                <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">Why MiniCause</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">More for your nonprofits. Less from your budget.</h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <!-- Nonprofit enablement callout -->
+            <div class="mt-12 bg-brand-50 rounded-3xl p-8 md:p-10 border border-brand-100 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <span class="text-4xl shrink-0">🤖</span>
+                    <div>
+                        <h3 class="font-display text-xl font-bold text-brand-900 mb-2">AI that actually helps (not just a buzzword on our website)</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            The biggest challenge in any giving day isn't the technology &mdash; it's getting hundreds of nonprofits ready to participate. Our AI tools help every organization create compelling campaign pages, write donor communications, and plan their outreach. The small animal shelter with two staff members gets the same quality campaign as the hospital with a twenty-person development office. That's the whole point.
+                        </p>
                     </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-2">3% of Funds Raised</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">No upfront license fees. No annual contracts. You only pay when your community raises money.</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-2">AI That Levels the Field</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Every nonprofit gets help creating compelling campaigns &mdash; not just the ones with a marketing department.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-2">Proven Technology</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Built on a platform that has powered giving days and fundraising for leading institutions around the world for over a decade.</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-14 h-14 feature-icon rounded-2xl flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-brand-900 mb-2">We Help Your Nonprofits Succeed</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Playbooks, training, and AI coaching so every organization in your community can participate meaningfully.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison -->
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center mb-14">
-                <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">At a Glance</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">What you get with MiniCause</h2>
-            </div>
-
-            <div class="overflow-x-auto">
-                <table class="w-full max-w-4xl mx-auto text-left">
-                    <thead>
-                        <tr class="border-b-2 border-gray-200">
-                            <th class="py-4 pr-6 text-sm font-semibold text-gray-500 uppercase tracking-wider"></th>
-                            <th class="py-4 px-6 text-sm font-semibold text-gray-500 uppercase tracking-wider">Typical Platform</th>
-                            <th class="py-4 px-6 text-sm font-semibold text-brand-600 uppercase tracking-wider bg-brand-50 rounded-t-xl">MiniCause</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm">
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4 pr-6 font-medium text-gray-800">Pricing</td>
-                            <td class="py-4 px-6 text-gray-600">$20k&ndash;$80k license + 4&ndash;7% fees</td>
-                            <td class="py-4 px-6 font-medium text-brand-700 bg-brand-50">3% of funds raised. No license fee.</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4 pr-6 font-medium text-gray-800">Giving Days</td>
-                            <td class="py-4 px-6 text-gray-600">Yes</td>
-                            <td class="py-4 px-6 font-medium text-brand-700 bg-brand-50">Yes &mdash; modern, proven technology</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4 pr-6 font-medium text-gray-800">Year-Round Fundraising</td>
-                            <td class="py-4 px-6 text-gray-600">Limited or separate product</td>
-                            <td class="py-4 px-6 font-medium text-brand-700 bg-brand-50">Built in &mdash; one platform</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4 pr-6 font-medium text-gray-800">AI Campaign Tools</td>
-                            <td class="py-4 px-6 text-gray-600">None</td>
-                            <td class="py-4 px-6 font-medium text-brand-700 bg-brand-50">AI storytelling, campaign copy & coaching</td>
-                        </tr>
-                        <tr class="border-b border-gray-100">
-                            <td class="py-4 pr-6 font-medium text-gray-800">Nonprofit Support</td>
-                            <td class="py-4 px-6 text-gray-600">Basic webinars</td>
-                            <td class="py-4 px-6 font-medium text-brand-700 bg-brand-50">Playbooks, training & AI coaching</td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 pr-6 font-medium text-gray-800">Donor Experience</td>
-                            <td class="py-4 px-6 text-gray-600">Functional</td>
-                            <td class="py-4 px-6 font-medium text-brand-700 bg-brand-50 rounded-b-xl">Inspiring, story-driven</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </section>
 
     <!-- Quote -->
-    <section class="py-16 gradient-cta">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <svg class="w-12 h-12 text-white/30 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-            <blockquote class="text-2xl md:text-3xl font-semibold text-white leading-relaxed mb-6">
-                Your giving day shouldn't be the only day your community can give. It should be the spark that keeps giving going all year.
-            </blockquote>
+    <section class="py-20 gradient-cta relative overflow-hidden">
+        <div class="absolute inset-0 pattern-dots"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="font-display text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+                A giving day should be the <span class="text-warm-300 italic">spark</span>,<br>
+                not the whole fire.
+            </h2>
+            <p class="text-purple-200 text-xl max-w-2xl mx-auto leading-relaxed">
+                Your community's generosity doesn't have an on/off switch. Why should your platform?
+            </p>
         </div>
+        <div class="absolute -right-20 top-10 w-64 h-64 bg-warm-400/10 rounded-full blur-3xl"></div>
     </section>
 
     <!-- Team -->
-    <section id="team" class="py-20 bg-gray-50">
+    <section id="team" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="max-w-3xl mx-auto text-center mb-16">
-                <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider mb-3">Who We Are</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-900 mb-6">Built by the team behind Hubbub</h2>
+                <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">The humans behind this</p>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-brand-900 mb-6 leading-tight">We've been doing this<br>for a surprisingly long time</h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    MiniCause is built by <a href="https://hubbub.net" target="_blank" class="text-brand-600 hover:underline font-medium">Hubbub</a>, a fundraising technology company that has powered giving days, crowdfunding, and digital fundraising for universities, schools, and nonprofits around the world for over a decade. We know this space inside and out.
+                    MiniCause is built by <a href="https://hubbub.net" target="_blank" class="text-brand-600 hover:underline font-semibold">Hubbub</a> &mdash; a fundraising technology company that's spent over a decade building giving day platforms, crowdfunding tools, and digital fundraising infrastructure for universities, nonprofits, and foundations around the world. We're not figuring this out as we go. We figured it out years ago and now we're bringing it to US community foundations.
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-200">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+                <div class="text-center group">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-md transition group-hover:shadow-xl group-hover:-translate-y-1">
                         <img src="https://cdn.prod.website-files.com/59ff50e3519aa5000146bb5b/5bf3d5dd31850e6bd7b476fd_imageedit_5_2153101906.jpg" alt="Jonathan May" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-bold text-brand-900">Jonathan May</h4>
+                    <h4 class="font-display font-bold text-brand-900 text-lg">Jonathan May</h4>
                     <p class="text-sm text-gray-500">CEO</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-200">
+                <div class="text-center group">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-md transition group-hover:shadow-xl group-hover:-translate-y-1">
                         <img src="https://cdn.prod.website-files.com/59ff50e3519aa5000146bb5b/5de545eaebad3cfc3c7d1c9d_Laura.png" alt="Laura Willard" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-bold text-brand-900">Laura Willard</h4>
+                    <h4 class="font-display font-bold text-brand-900 text-lg">Laura Willard</h4>
                     <p class="text-sm text-gray-500">Chief Operating Officer</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-200">
+                <div class="text-center group">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-md transition group-hover:shadow-xl group-hover:-translate-y-1">
                         <img src="https://cdn.prod.website-files.com/59ff50e3519aa5000146bb5b/5a5641a0ee6420000133243c_SAM_2037-3.jpg" alt="Kat Carter" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-bold text-brand-900">Kat Carter</h4>
+                    <h4 class="font-display font-bold text-brand-900 text-lg">Kat Carter</h4>
                     <p class="text-sm text-gray-500">Commercial Director</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-200">
+                <div class="text-center group">
+                    <div class="w-36 h-36 mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-100 shadow-md transition group-hover:shadow-xl group-hover:-translate-y-1">
                         <img src="https://cdn.prod.website-files.com/59ff50e3519aa5000146bb5b/5de1325c3c4ae172846f4968_David.png" alt="David Reynolds" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-bold text-brand-900">David Reynolds</h4>
+                    <h4 class="font-display font-bold text-brand-900 text-lg">David Reynolds</h4>
                     <p class="text-sm text-gray-500">Head of Engineering</p>
                 </div>
             </div>
 
             <div class="mt-16 text-center">
-                <div class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-100">
+                <div class="inline-flex items-center gap-3 bg-gray-50 px-6 py-3 rounded-full border border-gray-100">
                     <span class="text-sm text-gray-500 font-medium">Powered by</span>
-                    <a href="https://hubbub.net" target="_blank" class="flex items-center gap-2">
+                    <a href="https://hubbub.net" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition">
                         <img src="https://cdn.prod.website-files.com/59ff50e3519aa5000146bb58/5e19a63d1abe2c1d310f5262_Small%20Hubbub%20Logo.png" alt="Hubbub" class="h-7">
                     </a>
                 </div>
@@ -412,42 +402,45 @@
     </section>
 
     <!-- CTA -->
-    <section class="py-20 gradient-hero">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Let's talk about what's possible for your community</h2>
-            <p class="text-xl text-purple-100 leading-relaxed mb-10">
-                Whether you're planning your next giving day, exploring year-round fundraising, or just curious about what a modern platform looks like &mdash; we'd love to chat.
+    <section class="py-24 gradient-hero pattern-dots relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Curious? Skeptical?<br>
+                <span class="text-warm-300">Both are welcome.</span>
+            </h2>
+            <p class="text-xl text-purple-100/90 leading-relaxed mb-10 max-w-2xl mx-auto">
+                We'll spend 30 minutes talking about your community, your giving day, and whether MiniCause is the right fit. No slides. No hard sell. Just a conversation between people who care about community philanthropy.
             </p>
             <a href="https://meetings.hubspot.com/jonathanmay/scheduling?uuid=49603747-c646-4a8e-b78c-175ff61212ac" target="_blank"
-               class="inline-flex items-center justify-center bg-accent-500 hover:bg-accent-600 text-white font-semibold px-10 py-5 rounded-xl text-lg transition shadow-lg shadow-accent-500/25">
+               class="inline-flex items-center justify-center bg-warm-400 hover:bg-warm-300 text-brand-900 font-bold px-10 py-5 rounded-xl text-lg transition shadow-lg shadow-warm-400/20">
                 Book a 30-Minute Call
                 <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
-            <p class="text-purple-200 text-sm mt-6">No commitment, no pitch deck. Just a conversation about your community's needs.</p>
+            <p class="text-purple-300/50 text-sm mt-6 italic">We promise not to add you to a 47-email nurture sequence.</p>
         </div>
+        <div class="absolute -left-20 bottom-10 w-80 h-80 bg-brand-600/20 rounded-full blur-3xl"></div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-900 py-12">
+    <footer class="bg-brand-900 py-10 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2.5">
                     <div class="w-7 h-7 rounded-lg feature-icon flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
                     </div>
-                    <span class="text-lg font-bold text-white">MiniCause</span>
+                    <span class="font-display text-lg font-bold text-white">MiniCause</span>
                 </div>
-                <div class="flex items-center gap-6 text-sm text-purple-200">
-                    <span>Giving Days & Year-Round Fundraising</span>
-                    <span class="hidden md:inline text-purple-400">|</span>
+                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-purple-200">
+                    <span>Giving days & year-round fundraising</span>
+                    <span class="hidden md:inline text-purple-500">|</span>
                     <a href="https://hubbub.net" target="_blank" class="hover:text-white transition flex items-center gap-2">
                         Powered by
                         <img src="https://cdn.prod.website-files.com/59ff50e3519aa5000146bb58/5e19a63d1abe2c1d310f5262_Small%20Hubbub%20Logo.png" alt="Hubbub" class="h-5 brightness-200">
                     </a>
-                </div>
-                <div class="text-sm text-purple-300">
+                    <span class="hidden md:inline text-purple-500">|</span>
                     <a href="mailto:hello@hubbub.net" class="hover:text-white transition">hello@hubbub.net</a>
                 </div>
             </div>

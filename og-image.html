@@ -1,0 +1,48 @@
+<!-- Screenshot this at 1200x630 to create og-image.png -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=DM+Sans:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1200px; height: 630px;
+            background: linear-gradient(160deg, #1a0536, #2e1065, #4c1d95, #6d28d9);
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 80px;
+            font-family: 'Fraunces', Georgia, serif;
+            position: relative; overflow: hidden;
+        }
+        .dots {
+            position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .blob1 { position: absolute; right: -80px; top: -40px; width: 400px; height: 400px; background: rgba(124,58,237,0.3); border-radius: 50%; filter: blur(80px); }
+        .blob2 { position: absolute; left: -60px; bottom: -60px; width: 300px; height: 300px; background: rgba(251,191,36,0.15); border-radius: 50%; filter: blur(80px); }
+        .content { position: relative; z-index: 1; }
+        h1 { font-size: 64px; color: white; line-height: 1.15; font-weight: 900; margin-bottom: 20px; }
+        h1 em { color: #fcd34d; font-style: italic; }
+        p { font-family: 'DM Sans', sans-serif; font-size: 24px; color: rgba(233,213,255,0.8); font-weight: 500; }
+        .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+        .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #7c3aed, #10b981); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .logo-text { font-size: 32px; color: white; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="dots"></div>
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="content">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg width="28" height="28" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <span class="logo-text">MiniCause</span>
+        </div>
+        <h1>Your giving day platform.<br><em>And the other 364 days too.</em></h1>
+        <p>Giving days & year-round fundraising for community foundations.</p>
+    </div>
+</body>
+</html>
